@@ -8,7 +8,7 @@
     <artifactId>j2mod</artifactId>
     <name>j2mod</name>
     <url>https://github.com/steveohara/j2mod</url>
-    <version>2.3.4</version>
+    <version>2.3.4-1</version>
     <description>A fork of the j2mod library to support the jSerialComm connector</description>
 
     <packaging>jar</packaging>
@@ -198,33 +198,6 @@
                 </executions>
             </plugin>
 
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-gpg-plugin</artifactId>
-                <version>1.5</version>
-                <executions>
-                    <execution>
-                        <id>sign-artifacts</id>
-                        <phase>verify</phase>
-                        <goals>
-                            <goal>sign</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-
-            <plugin>
-                <groupId>org.sonatype.plugins</groupId>
-                <artifactId>nexus-staging-maven-plugin</artifactId>
-                <version>1.6.3</version>
-                <extensions>true</extensions>
-                <configuration>
-                    <serverId>ossrh</serverId>
-                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
-                </configuration>
-            </plugin>
-
         </plugins>
 
         <!-- Tell Maven to exclude our properties files from the resources directory. -->
@@ -241,13 +214,14 @@
 
     <distributionManagement>
         <snapshotRepository>
-            <id>ossrh</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+            <id>nexus-snapshots</id>
+            <url>http://nexus3:18081/repository/maven-snapshots/</url>
         </snapshotRepository>
         <repository>
-            <id>ossrh</id>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+            <id>nexus-releases</id>
+            <url>http://nexus3:18081/repository/maven-releases/</url>
         </repository>
     </distributionManagement>
+
 
 </project>
