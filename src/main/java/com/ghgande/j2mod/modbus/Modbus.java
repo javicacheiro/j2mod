@@ -280,7 +280,7 @@ public interface Modbus {
      * Defines the default setting for I/O operation timeouts
      * in milliseconds (=<tt>3000</tt>).
      */
-    int DEFAULT_TIMEOUT = 3000;
+    int DEFAULT_TIMEOUT = 180000;
 
     /**
      * Defines the default reconnecting setting for
